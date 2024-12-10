@@ -2,6 +2,3 @@
 
 # Notatki na bazy danych i egzamin zawodowy
 W plikach można znaleść .pdf i TeX.
-## Licensja
-
-[MIT](https://choosealicense.com/licenses/mit/)
