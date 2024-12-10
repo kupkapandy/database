@@ -5,9 +5,3 @@ W plikach można znaleść .pdf i TeX.
 ## Licensja
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
-## Autorzy
-
-- [@kupkapandy](https://www.github.com/kupkapandy)
-
