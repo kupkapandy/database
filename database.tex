@@ -1,0 +1,42 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\tableofcontents
+\newpage
+\section{Normalizacja - Teoria}
+\subsection*{Co to jest normalizacja?}
+\textbf{Normalizacja} to proces sprowadzania schematu do odpowiedniej postaci, w gównej mierze polega
+na podzielenie tabeli i połączenie ich kluczem głównym. Wady (anomalie) które mogą wystąpić podczas normalizacji:
+
+\subsection*{Atrybuty kluczowe i niekluczowe}
+W procesie normalizacji musimy zaznaczyć atrybuty kluczowe (czyli atrybuty posiadające klucz),
+atrybuty niekluczowe (nie należą do żadnego klucza), Atrybuty kluczowe trzeba podkreślić.
+
+\subsection*{Anomalie występujące w normalizacji}
+\begin{itemize}
+  \item \textbf{Dołączania} - Nie można dołączyć rekordu, ponieważ nie znamy jego innych danych.
+  \item \textbf{Aktualizacji} - W jednym miejscu dane są aktualizowane, a w drugim nie.
+  \item \textbf{Usuwania} - Usunięcie rekordu spowoduje usunięcie danych innego rodzaju.
+\end{itemize}
+
+\subsection*{Trzy kluczowe zasady normalizacji}
+W procesie normalizacji są 3 własności które trzeba zachować:
+\begin{itemize}
+  \item Żaden atrybut nie zostanie utracony podczas procesu normalizacji
+  \item Zmiana tabeli (czyli je podzielenie etc.) nie prowadzi do utraty informacji
+  \item Każda zależność funkcyjna posiada własną tabele
+\end{itemize}
+\subsection*{Pierwsza postać normalna 1NF}
+Schemat relacyjny jest w 1NF, gdy wszystkie kolumny posiadają wartości atomowe.
+\subsection*{Druga postać normalna 2NF}
+Schemat relacyjny jest w 2NF, gdy jest w 1NF i kiedy atrybuty niekluczowe są
+w pełni zależne od całego klucza głównego.
+\subsection*{Trzecia postać normalna 3NF}
+Schemat relacyjny jest w 3NF, gdy jest w 2NF i atrybuty niekluczowe są niezależne od innych
+atrybutów niekluczowych.
+\end{document}
