@@ -2,6 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{textcomp}
 
 \setlength{\parindent}{0pt}
 
@@ -39,4 +41,77 @@ w pełni zależne od całego klucza głównego.
 \subsection*{Trzecia postać normalna 3NF}
 Schemat relacyjny jest w 3NF, gdy jest w 2NF i atrybuty niekluczowe są niezależne od innych
 atrybutów niekluczowych.
+\section{Wyrażenia, maski i reguły poprawności}
+\subsection*{Podstawowe wyrażenia}
+\textbf{Identyfikatory} - To nazwy używane do odwoływania się do elementów w bazie danych takie jak np.
+\begin{itemize}
+  \item \textbf{Pola tabeli}
+  \item \textbf{Formanty}
+  \item \textbf{Właściowści}
+\end{itemize}
+Dzęki identyfikatorą można tworzyć wyrażenia które odwołują się do wartości elementów np.
+$= [\text{Tabela}].[\text{Pole z tabeli}]$
+\vspace{1em}
+
+\textbf{Stałe} - Czyli wartości podobne do \textbf{const}, najczęściej to true, false, NULL.
+\subsection*{Podstawowe wartości, funkcje, operatory}
+\textbf{Wartości}:
+\begin{itemize}
+  \item \textbf{Liczby} np. $1, -234$
+  \item \textbf{String} (Ciąg tekstowy) ujęty w $""$ lub $''$ na przykład "Mężczyzna".
+  \item \textbf{Data/Godzina} (Ujęte w znaki \#), np. \#03-07-2007\#, \#07-Mar-07\#
+\end{itemize}
+\vspace{1em}
+
+\textbf{Funkcje}
+\begin{itemize}
+  \item \textbf{YEAR(data)} - Zwraca rok z daty
+  \item \textbf{LEN("string")} - Zwraca długość stringa
+  \item \textbf{LCase(string)} - Zwraca string przekonwertowany na małe litery
+\end{itemize}
+\vspace{1em}
+
+\textbf{Operatory}
+\begin{itemize}
+  \item \textbf{$+, -, *, /$} – podstawowe operatory
+  \item \textbf{$\backslash$} – dzielenie i zaokrąglenie do liczby całkowitej
+  \item \textbf{MOD}, \^{} – modulo i podniesienie do potęgi
+  \item \textbf{$<, <=, >, >=, =, <>$} - oznacza różne (Reszta jest wiadoma)
+  \item \textbf{$+$} - Łączy stringi, jeśli jeden string to NULL, wynik to NULL
+  \item \textbf{$\&$} - Łączy stringi, jeśli jeden string to NULL, wynik to drugi string
+  \item \textbf{NOT, AND, OR, XOR} - Operatory logiczne, zwracają wynik w postaci logicznej
+  \item \textbf{IS NULL} albo \textbf{IS NOT NULL} - Porównanie wartości z NULL
+  \item \textbf{LIKE "przykład"} - Porównuje string z podanym przykładem, w wzorcu mogą zostać użyte symbole wieloznaczne np. $*, ?$.
+    LIKE "a*" - Pokaże wartości pól które zaczynają się od litery "a", lub "*a" pokaż pola na końcu z literą "a".
+  \item \textbf{BETWEEN var1 AND var2} - Sprawdza czy wartośc jest pomiędzy var1 i var2 (działa też na daty)
+  \item \textbf{IN ("var1", "var2", \dots)} - Sprawdza czy wartość jest w zbiorze wartości
+\end{itemize}
+\subsection*{Maski}
+\begin{itemize}
+  \item \textbf{0} – Cyfra, musi być wpisana (brak znaków + i -).
+  \item \textbf{9} – Cyfra lub spacja, nie musi być wpisana (brak znaków + i -).
+  \item \textbf{\#} – Cyfra lub spacja, nie musi być wpisana (może być znak + lub -).
+  \item \textbf{L} – Litera, musi być wpisana.
+  \item \textbf{?} – Litera, nie musi być wpisana.
+  \item \textbf{A} – Litera lub cyfra, musi być wpisana.
+  \item \textbf{a} – Litera lub cyfra, nie musi być wpisana.
+  \item \textbf{\&} – Dowolny znak, musi być wpisany.
+  \item \textbf{<} – Zamienia litery na małe.
+  \item \textbf{>} – Zamienia litery na duże.
+  \item \textbf{!} – Wymusza wypełnienie maski od lewej do prawej.
+  \item \textbf{\textbackslash} – Następny znak nie jest kodem maski, ale zwykłym znakiem.
+\end{itemize}
+Przykłady masek:
+\begin{itemize}
+  \item Data - "00-00-00" - Musi być wpisana liczba
+  \item Data - "90-90-00" - Liczba 9 może być pusta
+  \item Nazwisko - ">L<???????????????" - Nazwisko zaczyna się z dużej litery, reszta to małe litery, max. 16 liter.
+\end{itemize}
+\subsection*{Reguła poprawności}
+\textbf{Reguła poprawności} - Określamy zakres danych jakie można wprowadzić do danego pola, np.
+\begin{itemize}
+  \item >=50 AND <=1500 (Wartości tylko z zakresu od 50 do 1500)
+  \item >=\#1997-01-01\# and <=\#1998-1-1\# Dla dat od 1997-01-01 do 1998-01-01
+  \item
+\end{itemize}
 \end{document}
